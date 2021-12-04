@@ -1,0 +1,84 @@
+git and github tips :
+
+1 - create a new repository in github 
+2 - create a new folder in your desktop that will contain the code 
+3 - initialise git in the folder by the command :
+$ git init 
+4 - create a new file that will contain our code , for this example we will create a hello world app with PHP
+my File : 
+
+<?php 
+
+echo "Hello World First commit";
+
+?>
+
+5 - after writing this code add it to git with the following command : 
+
+$ git add .
+
+6 - to commit the changes to git you can do it with this command : 
+
+$ git commit -m "first commit"
+
+// for now we gonna keep the branch master but if you want to change the branch you can do this command : (skip it for now)
+
+$ git branch -M <branch name>
+
+7 - to remotly connect to the hosted repository in github or gitlab you can do this command : (we will do it just the first time after initialising git after that we don't need to)
+
+$ git remote add origin <(url of your repository).git>
+
+for my case : 
+$ git remote add origin https://github.com/safouaneOulhabib/TestGit.git
+
+8 - to push the changes to our repository we can do : 
+
+$ - git push -u origin <branch name>
+
+// for our case we will do : 
+
+$ - git push -u origin master
+
+
+9 - after that we will do 2 times changes in our code and each time we change the code we will do this commands to add changes to git and commit it and push it to the repository 
+
+<?php 
+
+echo "Hello World First commit";
+
+// $ git add . 
+// $ git commit -m "second commit"
+// $ git push -u origin master
+echo "Hello World Second commit";
+
+// $ git add . 
+// $ git commit -m "third commit"
+// $ git push -u origin master
+echo "Hello World Third commit";
+
+?>
+
+10 - now we will do a new thing : 
+what if i want to remove the commit that i did as well as the code that i had in that commit , yes you can do it with the following command :
+
+$ git reset --hard HEAD~<Head is the last commit if you want the commit before the last you can add 1 if you want the first commit you can add 2 each time you add 1 to had you're reffering to the previous commit>
+
+in our case if i want to get back to the second commit i can do  : 
+
+$ git reset --hard HEAD~1 
+
+expected output : 
+
+HEAD is now at d4b7f79 second commit
+
+to push the changes in github :
+
+$  git push origin master --force
+
+#  you need to add -force because the commits is unstaged with the code in github 
+
+
+now you can see the changes in github and you will find just the 2 commits (first and second )
+
+
